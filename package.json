@@ -1,6 +1,6 @@
 {
   "name": "eslint-no-assignment-in-array-methods",
-  "description": "Force array functions to include explicit generics",
+  "description": "Force some array functions to avoid assignment",
   "version": "0.0.1",
   "main": "index.js",
   "homepage": "https://github.com/mattorchard/eslint-no-assignment-in-array-methods",
