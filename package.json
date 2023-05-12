@@ -1,5 +1,5 @@
 {
-  "name": "eslint-no-assignment-in-array-methods",
+  "name": "eslint-plugin-no-assignment-in-array-methods",
   "description": "Force some array functions to avoid assignment",
   "version": "0.0.1",
   "main": "index.js",
