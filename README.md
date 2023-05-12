@@ -1,6 +1,6 @@
-# eslint-no-assignment-in-array-methods
+# eslint-plugin-no-assignment-in-array-methods
 
-eslint-no-assignment-in-array-methods
+eslint-plugin-no-assignment-in-array-methods
 
 ## Why
 
@@ -11,6 +11,6 @@ This plugin seeks to prevent this class of bug, at least in the code areas where
 
 ```ts
 const people = [{ name: "Alice" }, { name: "Bob" }, { name: "Charlie" }];
-const bob = people.find((person) => person.name = "Bob"); // ❌
+const bob = people.find((person) => (person.name = "Bob")); // ❌
 const bob = people.find((person) => person.name === "Bob"); // ✅
 ```
