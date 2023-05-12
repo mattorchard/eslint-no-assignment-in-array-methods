@@ -23,24 +23,32 @@ function closest(node, expressionType) {
 
 module.exports = {
   meta: {
+    name: "no-assignment-in-array-methods",
     type: "problem",
   },
-  create: function (context) {
-    function handleAssignmentExpression(node) {
-      const callNode = closest(node, "CallExpression");
-      if (!callNode || !doesCalleeImplyPurity(callNode)) return;
+  rules: {
+    "no-assignment-in-array-methods": {
+      meta: {
+        type: "problem",
+      },
+      create: function (context) {
+        function handleAssignmentExpression(node) {
+          const callNode = closest(node, "CallExpression");
+          if (!callNode || !doesCalleeImplyPurity(callNode)) return;
 
-      context.report({
-        node: node,
-        message: "Prefer pure functions for this array method",
-        data: undefined,
-      });
-    }
-    return {
-      "CallExpression > FunctionExpression AssignmentExpression":
-        handleAssignmentExpression,
-      "CallExpression > ArrowFunctionExpression AssignmentExpression":
-        handleAssignmentExpression,
-    };
+          context.report({
+            node: node,
+            message: "Prefer pure functions for this array method",
+            data: undefined,
+          });
+        }
+        return {
+          "CallExpression > FunctionExpression AssignmentExpression":
+            handleAssignmentExpression,
+          "CallExpression > ArrowFunctionExpression AssignmentExpression":
+            handleAssignmentExpression,
+        };
+      },
+    },
   },
 };
